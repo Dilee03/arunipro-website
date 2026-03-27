@@ -3,6 +3,8 @@ import { Inter, Poppins } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils/cn";
+import { TopBar } from "@/components/layout/TopBar";
+import { Toaster } from 'sonner';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -35,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, poppins.variable)}>
       <body className="min-h-screen flex flex-col">
+        <TopBar />
         <Header />
+        <Toaster position="top-right" />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
